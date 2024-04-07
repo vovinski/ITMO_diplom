@@ -6,7 +6,7 @@ const port = 3000;
 
 // Подключение к базе данных MySQL
 const db = mysql.createConnection({
-  host: 'localhost',
+  host: 'db:3306',
   user: 'username',
   password: 'password',
   database: 'mydatabase'
