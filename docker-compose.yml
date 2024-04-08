@@ -7,6 +7,9 @@ services:
     image: mysql
     environment:
       MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: mybase
+      MYSQL_USER: lvv
+      MYSQL_PASSWORD:lvv_pass
 
   app:
 
