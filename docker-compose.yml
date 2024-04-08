@@ -9,10 +9,18 @@ services:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: mybase
       MYSQL_USER: lvv
-      MYSQL_PASSWORD:lvv_pass
+      MYSQL_PASSWORD: lvv_pass
 
   app:
-
-
+    restart: always
+    container_name: app
+    image: myapp:latest
+    depends_on:
+      - db
+    
+    
 
   nginx:
+    restart: always
+    container_name: nginx
+    image: nginx
