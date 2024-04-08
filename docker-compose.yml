@@ -1,10 +1,14 @@
 ---
 version: 3
 services:
-  app:
-
-
   db:
+    restart: always
+    container_name: db
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+
+  app:
 
 
 
