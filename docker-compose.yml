@@ -18,7 +18,7 @@ services:
   app:
     restart: always
     container_name: app
-    image: vovinski.gitlab.yandexcloud.net/vovinski/itmo_diplom/appjava:latest
+    image: vovinski.gitlab.yandexcloud.net/vovinski/itmo_diplom:latest
     depends_on:
       - db
     ports:
