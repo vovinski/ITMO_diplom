@@ -7,7 +7,7 @@ WORKDIR ${APP_DIR}
 # Установка зависимостей
 COPY package*.json ./
 RUN npm install
-RUN npm install mysql
+RUN npm install mysql2
 # Для использования в продакшне
 # RUN npm install --production
 

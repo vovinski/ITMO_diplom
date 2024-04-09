@@ -1,5 +1,5 @@
 ---
-version: 3
+version: '3'
 services:
   db:
     restart: always
@@ -10,17 +10,28 @@ services:
       MYSQL_DATABASE: mybase
       MYSQL_USER: lvv
       MYSQL_PASSWORD: lvv_pass
+    volumes:
+      - db:/var/lib/mysql
+    ports:
+      - 3306:3306
 
   app:
     restart: always
     container_name: app
-    image: myapp:latest
+    image: aapjava:latest
     depends_on:
       - db
-    
-    
+    ports:
+      - 3000:3000
 
   nginx:
     restart: always
     container_name: nginx
     image: nginx
+    ports:
+      - 80:80
+      - 443:443
+    # volumes:
+    #   - ./nginx:/etc/nginx
+volumes:
+  db:
