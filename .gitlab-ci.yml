@@ -4,7 +4,7 @@ stages:
 image: docker:20.10.16
 
 variables:
-  DOCKER_HOST: tcp://localhost:2376
+  DOCKER_HOST: tcp://localhost
   
   DOCKER_DRIVER: overlay2
 
