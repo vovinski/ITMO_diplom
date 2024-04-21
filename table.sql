@@ -1,3 +1,12 @@
-CREATE TABLE mytable (name VARCHAR(20), age INT, location VARCHAR(20));
-  INSERT INTO TABLE mytable VALUES ("Test 1", 23, "Same Name");
-  INSERT INTO TABLE mytable VALUES ("Test 2", 27, "Same Name 2");`
+CREATE DATABASE productdb;
+GRANT ALL PRIVILEGES ON productdb.* TO 'lvv'@'%';
+USE productdb;
+CREATE TABLE Products
+(
+    Id INT AUTO_INCREMENT PRIMARY KEY,
+    ProductName VARCHAR(30) NOT NULL,
+    Manufacturer VARCHAR(20) NOT NULL,
+    ProductCount INT DEFAULT 0,
+    Price DECIMAL NOT NULL
+);
+INSERT Products(ProductName, Manufacturer, ProductCount, Price) VALUES ('iPhone X', 'Apple', 5, 76000);
