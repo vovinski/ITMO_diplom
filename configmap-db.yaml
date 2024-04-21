@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-config
+  labels:
+    app: mysql-db
+data:
+  MYSQL_ROOT_PASSWORD: password
+  MYSQL_DATABASE: mybase
+  MYSQL_USER: lvv
+  MYSQL_PASSWORD: lvv_pass
