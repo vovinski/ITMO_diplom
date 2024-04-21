@@ -31,7 +31,7 @@ deploy:
     - kubectl apply -f configmap-db.yaml
     - kubectl apply -f mysql-pvc-pv.yml
     - kubectl apply -f k8s-nginx.yaml
-    - kubectl apply -f db-k8s.yaml
+    - kubectl apply -f k8s-db.yaml
     - kubectl apply -f k8s-app.yaml
     
     
