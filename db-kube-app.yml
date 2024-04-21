@@ -11,3 +11,33 @@ spec:
   selector:
     app: mysql-db
 ---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-db-deployment  # Задается имя Deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql-db
+  template:
+    metadata:
+      labels:
+        app: mysql-db
+    spec:
+      containers:
+        - name: db
+          image: mysql # Задается образ
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: 3306  # Указывается порт контейнера
+          envFrom:
+            - configMapRef: # Сопоставляется переменная окружения из ConfigMap
+                name: mysql-config
+          volumeMounts:
+            - mountPath: /var/lib/mysql
+              name: mysql-volume
+      volumes:
+        - name: mysql-volume
+          persistentVolumeClaim:
+            claimName: mysql-pv-claim # Сопоставляется утверждение из PersistantVolumeClaim
