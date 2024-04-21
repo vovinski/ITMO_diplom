@@ -1,25 +1,25 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: hello-world
+  name: app-js
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-world-deployment
-  namespace: hello-world
+  name: app-deployment
+  namespace: app-js
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hello
+      app: app
   template:
     metadata:
-      namespace: hello-world
+      namespace: app-js
       labels:
-        app: hello
+        app: app
     spec:
       containers:
-        - name: hello-world
+        - name: app-js
           image: __VERSION__
           imagePullPolicy: Always
