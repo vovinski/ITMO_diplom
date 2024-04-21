@@ -11,7 +11,7 @@ const db = mysql.createConnection({
   port: "3306",
   user: 'lvv',
   password: 'lvv_pass',
-  database: 'mybase'
+  database: 'productdb'
 });
 
 // Подключение к базе данных
@@ -24,7 +24,7 @@ db.connect((err) => {
 
 // Маршрут для получения данных из базы данных
 app.get('/data', (req, res) => {
-  let sql = 'SELECT * FROM mytable';
+  let sql = 'SELECT * FROM Products';
   db.query(sql, (err, result) => {
     if (err) throw err;
     res.json(result);
