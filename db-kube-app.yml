@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql # Задается имя службы
+  labels:
+    app: mysql-db # Метки и селекторы
+spec:
+  type: NodePort # Задается тип службы
+  ports:
+    - port: 3306 # Задается порт для запуска приложения postgres
+  selector:
+    app: mysql-db
+---
